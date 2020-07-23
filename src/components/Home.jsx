@@ -38,12 +38,19 @@ export default function Home() {
   return (
     <div>
       <MyNavbar getInfos={getInfos} />
+      <Col lg="2" style={{ marginTop: 20, marginBottom: 20 }}>
+        <img src={user.avatar} alt="user avatar" width="80vw" />
+        <h3>{user.pseudo}</h3>
+      </Col>
       {posts.map((i) => (
         <Col
           lg={{ size: 6, offset: 3 }}
+          md={{ size: 6, offset: 3 }}
+          sm={{ size: 8, offset: 2 }}
           style={{ marginTop: 20, marginBottom: 20 }}
         >
           <PostsCards
+            uuid={i.uuid}
             user={i.User.pseudo}
             userAvatar={i.User.avatar}
             title={i.title}

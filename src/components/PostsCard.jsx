@@ -11,8 +11,9 @@ import {
   Col,
 } from "reactstrap";
 import { BsFillHeartFill } from "react-icons/bs";
+import ModalComments from "./ModalComments";
 
-const PostsCards = ({ user, userAvatar, title, text, picture, like }) => {
+const PostsCards = ({ user, userAvatar, title, text, picture, like, uuid }) => {
   return (
     <Card>
       <CardHeader>
@@ -34,10 +35,16 @@ const PostsCards = ({ user, userAvatar, title, text, picture, like }) => {
       <CardBody>
         <CardTitle>{title}</CardTitle>
         <CardText>{text}</CardText>
-        <Button color="danger" outline={like}>
-          <BsFillHeartFill />
-        </Button>
-        <Button>Comments</Button>
+        <Row>
+          <Col>
+            <Button color="danger" outline={like}>
+              <BsFillHeartFill />
+            </Button>
+          </Col>
+          <Col>
+            <ModalComments />
+          </Col>
+        </Row>
       </CardBody>
     </Card>
   );
