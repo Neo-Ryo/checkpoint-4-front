@@ -3,6 +3,7 @@ import MyNavbar from "./MyNavbar";
 import Axios from "axios";
 import { url } from "../urls";
 import PostsCards from "./PostsCard";
+import Comments from "./Comments";
 import { Col } from "reactstrap";
 
 export default function Home() {
@@ -56,7 +57,11 @@ export default function Home() {
             title={i.title}
             text={i.text}
             picture={i.picture}
+            getInfos={getInfos}
           />
+          {i.Comments.map((it) => (
+            <Comments pseudo={it.User.pseudo} content={it.content} />
+          ))}
         </Col>
       ))}
     </div>
